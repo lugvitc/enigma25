@@ -1,22 +1,23 @@
-import React, { useEffect } from 'react'
-import Speakers from './components/Speakers'
+import React, { useEffect } from "react";
+import Speakers from "./components/Speakers";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const About = () => {
   useEffect(() => {
-    const hasReloaded = localStorage.getItem('hasReloaded')
-    if (!hasReloaded) {
-      localStorage.setItem('hasReloaded', 'true')
-      setTimeout(() => {
-        window.location.reload()
-      }, 1000)
-    }
-  }, [])
+    // Force GSAP animations to refresh when navigating to About page
+    setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 500);
+  }, []);
 
   return (
     <div className="">
       <Speakers />
     </div>
-  )
-}
+  );
+};
 
-export default About
+export default About;
