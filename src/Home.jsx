@@ -55,7 +55,7 @@ function Home() {
           <Prize className='w-screen h-screen'/>
         </Canvas>
       </div>*/}
-      {/*<Content />/*}
+      {/* <Content /> */}
 
       <Scene className="fixed top-0" />
       <Rules />
