@@ -23,8 +23,8 @@ const CTFs = () => {
   const [selectedQuestionType, setSelectedQuestionType] =
     React.useState<string>('')
 
-  const [error, setError] = useState("");
-  const [questions, setQuestions] = useState<Question[]>([]);
+  const [error, setError] = useState('')
+  const [questions, setQuestions] = useState<Question[]>([])
 
   // So this selected question ID contains whatever you click, I will create a function below that logs the current selected question ID in the console so that during backend integration, it will be easy for you. Everything else happens on its own in the individual components.
   const [selectedQuestionId, setSelectedQuestionId] = React.useState<string>('')
@@ -42,20 +42,20 @@ const CTFs = () => {
       try {
         const response = await api.get('/ctf/list')
         if (response.status === 200) {
-          setQuestions(response.data);
+          setQuestions(response.data)
         }
       } catch (err: unknown) {
         if (axios.isAxiosError(err)) {
           if (err.response) {
-            setError(err.response.data.msg_code.toString());
+            setError(err.response.data.msg_code.toString())
           }
         }
       }
-    };
-  
-    getData();
-  }, []);
-  
+    }
+
+    getData()
+  }, [])
+
   return (
     <div className="flex h-screen w-screen flex-col font-neuebit">
       <Header
@@ -97,9 +97,7 @@ const CTFs = () => {
         <CTFList
           ctfList={questions.filter((question) =>
             selectedQuestionType
-              ? getTypesFromMask(question.tags).includes(
-                  selectedQuestionType
-                )
+              ? getTypesFromMask(question.tags).includes(selectedQuestionType)
               : true
           )}
           onHover={setHoveredQuestionId}
@@ -107,25 +105,21 @@ const CTFs = () => {
         />
         <CTFDescription
           description={
-            questions.find(
-              (question) => question.id === hoveredQuestionId
-            )?.description || ''
+            questions.find((question) => question.id === hoveredQuestionId)
+              ?.description || ''
           }
           points={
-            questions.find(
-              (question) => question.id === hoveredQuestionId
-            )?.points || 0
+            questions.find((question) => question.id === hoveredQuestionId)
+              ?.points || 0
           }
           author={
-            questions.find(
-              (question) => question.id === hoveredQuestionId
-            )?.author || ''
+            questions.find((question) => question.id === hoveredQuestionId)
+              ?.author || ''
           }
           tags={
             getTypesFromMask(
-              questions.find(
-                (question) => question.id === hoveredQuestionId
-              )?.tags || 0
+              questions.find((question) => question.id === hoveredQuestionId)
+                ?.tags || 0
             ) || []
           }
         />

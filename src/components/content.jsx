@@ -46,9 +46,17 @@ function Content() {
             ref={wrapperRef}
             className="z-30 flex h-screen flex-row items-center gap-x-20 bg-enigma-green px-10 font-neuebit text-black"
           >
-            <img src="/images/content/20240917_110702.jpg" alt="participants for c0day3" className='h-full w-auto'/>
+            <img
+              src="/images/content/20240917_110702.jpg"
+              alt="participants for c0day3"
+              className="h-full w-auto"
+            />
             <h2 className="text-9xl">Participants</h2>
-            <img src="/images/content/IMG_20240917_103232440.jpg" alt="participants for c0day3" className='h-full w-auto'/>
+            <img
+              src="/images/content/IMG_20240917_103232440.jpg"
+              alt="participants for c0day3"
+              className="h-full w-auto"
+            />
             <h2 className="text-9xl">Placeholder</h2>
             <h2 className="text-9xl">Placeholder</h2>
             <h2 className="text-9xl">Placeholder</h2>
